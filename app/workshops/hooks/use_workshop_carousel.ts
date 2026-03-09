@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Workshop } from "../types/workshop.types";
 
 const CARDS_PER_PAGE = 3;
-const AUTO_DELAY_MS  = 4000;
+const AUTO_DELAY_MS  = 6500; // increased from 4000 — feels more comfortable
 
 type UseWorkshopCarouselReturn = {
   currentPage: number;
@@ -24,7 +24,6 @@ export function useWorkshopCarousel(workshops: Workshop[]): UseWorkshopCarouselR
 
   const goToPage = useCallback(
     (page: number) => {
-      // Infinite loop: wrap around
       setCurrentPage(((page % totalPages) + totalPages) % totalPages);
     },
     [totalPages]
@@ -42,7 +41,6 @@ export function useWorkshopCarousel(workshops: Workshop[]): UseWorkshopCarouselR
     }
   }, [totalPages]);
 
-  // Re-schedule whenever page changes
   useEffect(() => {
     scheduleNext();
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };

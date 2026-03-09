@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faClock, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 import { Workshop } from "../types/workshop.types";
 import { WorkshopTag } from "./Workshop_tag";
 
@@ -17,7 +19,7 @@ export function WorkshopCard({ workshop }: Props) {
       hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]
       cursor-pointer
     ">
-      {/* Image — taller, like PIE Studio */}
+      {/* Image */}
       <div className="relative h-[260px] overflow-hidden bg-[#E8DDD5] flex-shrink-0">
         <Image
           src={workshop.imageUrl}
@@ -27,7 +29,7 @@ export function WorkshopCard({ workshop }: Props) {
           sizes="(max-width: 768px) 100vw, 50vw"
         />
 
-        {/* Date chip — top left, white box */}
+        {/* Date chip */}
         <div className="
           absolute top-3 left-3
           bg-white rounded-[10px] shadow-sm
@@ -39,7 +41,7 @@ export function WorkshopCard({ workshop }: Props) {
           {workshop.time}
         </div>
 
-        {/* Tags — bottom left over image */}
+        {/* Tags */}
         <div className="absolute bottom-3 left-3 flex gap-[5px] flex-wrap">
           {workshop.tags.map((tag) => (
             <WorkshopTag key={tag.label} tag={tag} />
@@ -56,17 +58,20 @@ export function WorkshopCard({ workshop }: Props) {
           {workshop.subtitle}
         </p>
 
-        {/* Meta — inline chips like PIE Studio */}
+        {/* Meta chips */}
         <div className="flex flex-wrap gap-x-4 gap-y-[6px] mb-5">
           <span className="text-[12px] font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
-            📍 {workshop.location}
+            <FontAwesomeIcon icon={faLocationDot} className="w-3! h-3! text-[#F4845F]" />
+            {workshop.location}
           </span>
           <span className="text-[12px] font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
-            ⏱ {workshop.duration}
+            <FontAwesomeIcon icon={faClock} className="w-3! h-3! text-[#4EC5A0]" />
+            {workshop.duration}
           </span>
           {workshop.note && (
             <span className="text-[12px] font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
-              ✨ {workshop.note}
+              <FontAwesomeIcon icon={faStarHalfStroke} className="w-3! h-3! text-[#C5B8F0]" />
+              {workshop.note}
             </span>
           )}
         </div>
