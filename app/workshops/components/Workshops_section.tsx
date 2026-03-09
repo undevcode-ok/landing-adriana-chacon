@@ -3,7 +3,7 @@
 import { WORKSHOPS } from "../data/workshop.data";
 import { BlobBorder } from "./Blob_border";
 import { CategoryPanel } from "./Categoy_panel";
-import { WorkshopCarousel } from "./Workshop_carousel";
+
 
 const BLOB_COLORS = ["#F9C8D4", "#FFE47A", "#A8E6CF", "#C5B8F0"];
 
@@ -27,7 +27,8 @@ export function WorkshopSection({ backgroundImageUrl }: Props) {
 
               {/* RIGHT: cream carousel */}
               <div className="bg-[#FAF6EC] rounded-[14px] m-3 p-5">
-                <WorkshopCarousel workshops={WORKSHOPS} />
+                {/*aqui va workshop carousel */}
+                
               </div>
 
             </div>
