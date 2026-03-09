@@ -307,13 +307,7 @@ function PaintingsRowSection({ row }: { row: PaintingsRow }) {
           </h3>
 
           {/* CTA */}
-          <a
-            href={row.ctaHref}
-            className="flex-shrink-0 bg-[#1a1a1a] text-white text-[0.82rem] font-bold
-              px-5 py-[10px] rounded-full transition-colors duration-200 hover:bg-[#5a5c1e]"
-          >
-            {row.ctaLabel}
-          </a>
+        
         </div>
 
         {/* ── Cards grid ── */}

@@ -1,9 +1,8 @@
 "use client";
 
-import { WORKSHOPS } from "../data/workshop.data";
 import { BlobBorder } from "./Blob_border";
 import { CategoryPanel } from "./Categoy_panel";
-
+import { WorkshopCarousel } from "./Workshop_carousel";
 
 const BLOB_COLORS = ["#F9C8D4", "#FFE47A", "#A8E6CF", "#C5B8F0"];
 
@@ -22,13 +21,12 @@ export function WorkshopSection({ backgroundImageUrl }: Props) {
           <div className="relative rounded-[20px] overflow-hidden bg-[#F9C8D4]">
             <div className="grid grid-cols-[260px_1fr]">
 
-              {/* LEFT: image with fade */}
+              {/* LEFT: image panel */}
               <CategoryPanel backgroundImageUrl={backgroundImageUrl} />
 
-              {/* RIGHT: cream carousel */}
+              {/* RIGHT: carousel */}
               <div className="bg-[#FAF6EC] rounded-[14px] m-3 p-5">
-                {/*aqui va workshop carousel */}
-                
+                <WorkshopCarousel />
               </div>
 
             </div>
