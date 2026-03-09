@@ -43,7 +43,7 @@ export function CarouselNav({
             w-9 h-9 rounded-full border-2 border-[#2B1F1A] bg-[#2B1F1A]
             text-white font-bold text-sm flex items-center justify-center
             transition-all duration-200
-            hover:bg-[#4EC5A0] hover:text-[#2B1F1A] hover:border-[#4EC5A0]
+            hover:bg-[#5a5c1e] hover:text-white 
             disabled:opacity-30 disabled:cursor-not-allowed
           "
         >
@@ -57,7 +57,7 @@ export function CarouselNav({
             w-9 h-9 rounded-full border-2 border-[#2B1F1A] bg-[#2B1F1A]
             text-white font-bold text-sm flex items-center justify-center
             transition-all duration-200
-            hover:bg-[#4EC5A0] hover:text-[#2B1F1A] hover:border-[#4EC5A0]
+            hover:bg-[#5a5c1e] hover:text-white
             disabled:opacity-30 disabled:cursor-not-allowed
           "
         >

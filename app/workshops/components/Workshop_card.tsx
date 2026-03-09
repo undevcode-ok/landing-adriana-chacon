@@ -1,8 +1,19 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faClock, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faClock, faStarHalfStroke, faAlarmClock } from "@fortawesome/free-solid-svg-icons";
 import { Workshop } from "../types/workshop.types";
 import { WorkshopTag } from "./Workshop_tag";
+import { Inter_Tight, Barlow_Condensed } from "next/font/google";
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+});
+
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["900"],
+});
 
 type Props = {
   workshop: Workshop;
@@ -34,15 +45,15 @@ export function WorkshopCard({ workshop }: Props) {
           absolute top-3 left-3
           bg-white rounded-[10px] shadow-sm
           px-[10px] py-[6px] text-center
-          text-[12px] font-black text-[#2B1F1A] leading-snug
+          text-sm font-black text-[#2B1F1A] leading-snug
         ">
-          {workshop.date}
+           {workshop.date}
           <br />
           {workshop.time}
         </div>
 
         {/* Tags */}
-        <div className="absolute bottom-3 left-3 flex gap-[5px] flex-wrap">
+        <div className="absolute  bottom-3 left-3 flex gap-[5px] flex-wrap">
           {workshop.tags.map((tag) => (
             <WorkshopTag key={tag.label} tag={tag} />
           ))}
@@ -51,25 +62,25 @@ export function WorkshopCard({ workshop }: Props) {
 
       {/* Body */}
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="text-[17px] font-black text-[#2B1F1A] leading-snug mb-[3px]">
+        <h3 className={`${barlow.className} text-xl font-black text-[#2B1F1A] leading-snug mb-[3px]`}>
           {workshop.title}
         </h3>
-        <p className="text-[13px] text-[#7A6A5A] italic mb-4">
+        <p className="text-base text-[#7A6A5A] italic mb-4">
           {workshop.subtitle}
         </p>
 
         {/* Meta chips */}
         <div className="flex flex-wrap gap-x-4 gap-y-[6px] mb-5">
-          <span className="text-[12px] font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
+          <span className="text-base font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
             <FontAwesomeIcon icon={faLocationDot} className="w-3! h-3! text-[#F4845F]" />
             {workshop.location}
           </span>
-          <span className="text-[12px] font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
+          <span className="text-base font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
             <FontAwesomeIcon icon={faClock} className="w-3! h-3! text-[#4EC5A0]" />
             {workshop.duration}
           </span>
           {workshop.note && (
-            <span className="text-[12px] font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
+            <span className="text-base font-semibold text-[#5A4A3A] flex items-center gap-[5px]">
               <FontAwesomeIcon icon={faStarHalfStroke} className="w-3! h-3! text-[#C5B8F0]" />
               {workshop.note}
             </span>
@@ -79,18 +90,18 @@ export function WorkshopCard({ workshop }: Props) {
         {/* Footer */}
         <div className="mt-auto flex items-center justify-between">
           <div>
-            <span className="text-[11px] font-semibold text-[#9A8A7A]">desde </span>
-            <span className="text-[20px] font-black text-[#2B1F1A] leading-none">
+            <span className="text-base font-semibold text-[#9A8A7A]">desde </span>
+            <span className="text-xl font-black text-[#2B1F1A] leading-none">
               {workshop.currency}{formattedPrice}
             </span>
           </div>
 
           <button className="
-            bg-[#2B1F1A] text-white
+            bg-[#ffd6a7] text-black
             px-5 py-[10px] rounded-[30px]
-            text-[12px] font-black uppercase tracking-wide
+            text-lg font-black uppercase tracking-wide
             transition-all duration-200
-            hover:bg-[#4EC5A0] hover:text-[#2B1F1A]
+            hover:bg-[#441306] hover:text-white
           ">
             {workshop.soldOut ? "Sin cupos" : "Inscribite"}
           </button>

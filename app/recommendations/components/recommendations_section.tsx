@@ -2,7 +2,8 @@
 
 import { RECOMMENDATIONS } from "../data/recommendations.data";
 import { useCarousel } from "../hooks/use_carrousel";
-import { Inter_Tight, Barlow_Condensed } from "next/font/google";
+import { Inter_Tight, Barlow_Condensed, Pacifico } from "next/font/google";
+import Image from "next/image";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -12,6 +13,11 @@ const interTight = Inter_Tight({
 const barlow = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["900"],
+});
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: ["400"], // Pacifico solo tiene un peso
 });
 
 /* ── BlobBorder — full coverage, no white gaps ── */
@@ -133,15 +139,22 @@ function Avatar({ src, name }: { src: string; name: string }) {
   return (
     <div
       className="relative flex-shrink-0 rounded-full overflow-hidden
-        w-[88px]   h-[88px]
-        sm:w-[104px] sm:h-[104px]
-        lg:w-[116px] lg:h-[116px]
-        xl:w-[128px] xl:h-[128px]"
+        w-[150px]   h-[150px]
+        sm:w-[150px] sm:h-[150px]
+        lg:w-[250px] lg:h-[250px]
+        xl:w-[250px] xl:h-[250px]"
     >
       <BlobBorder colors={["#b5ead7", "#ffdac1", "#a8d8ea", "#c9b8f0"]} />
       <div className="absolute rounded-full bg-white z-10" style={{ inset: 8 }} />
       <div className="absolute rounded-full overflow-hidden z-20" style={{ inset: 11 }}>
-        <img src={src} alt={name} className="w-full h-full object-cover" />
+        <Image
+          src={src}
+          alt={name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 104px, (max-width: 1280px) 300px, 400px"
+          quality={100}
+        />
       </div>
     </div>
   );
@@ -154,7 +167,7 @@ export function Recommendations() {
 
   return (
     <section
-      className="relative w-full overflow-hidden
+      className="relative w-full h-full flex justify-center items-center overflow-hidden
         py-12
         sm:py-16
         lg:py-20
@@ -176,16 +189,16 @@ export function Recommendations() {
 
         {/* ── Título ── */}
         <p
-          className={`${barlow.className} text-center italic
+          className={`${pacifico.className} xl:pt-20 lg:pt-30   text-4xl  xl:text-7xl lg:text-6xl text-center italic
             mb-6 sm:mb-8 lg:mb-10`}
           style={{
-            fontSize: "clamp(1.6rem, 5.5vw, 4rem)",
+            
             color: "#1DAB8E",
             letterSpacing: "0.01em",
             lineHeight: 1.1,
           }}
         >
-          ¡Todo el mundo lo disfruta!
+          Transformá tu creatividad en obras únicas
         </p>
 
         {/* ── Avatar ── */}
@@ -207,8 +220,8 @@ export function Recommendations() {
             style={{ animation: "recFadeIn 0.35s ease both" }}
           >
             <p
-              className={`${interTight.className} font-extrabold leading-snug text-black`}
-              style={{ fontSize: "clamp(0.82rem, 1.8vw, 1.2rem)" }}
+              className={`${barlow.className} font-bold text-2xl leading-snug text-black`}
+              
             >
               «{rec.quote}»
             </p>

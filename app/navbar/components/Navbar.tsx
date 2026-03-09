@@ -163,7 +163,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 </span>
               </button>
 
-              <button
+              {/*<button
                 onClick={() => handleAction("faq")}
                 className={`group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm overflow-hidden
                   ${activeAction === "faq" ? "bg-orange-100 hover:bg-orange-100" : "bg-white hover:bg-gray-100"}`}
@@ -172,7 +172,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-200 text-sm font-semibold whitespace-nowrap">
                   FAQ
                 </span>
-              </button>
+              </button>*/}
             </div>
 
             {/* Botón Menú con animación hamburger → X */}
