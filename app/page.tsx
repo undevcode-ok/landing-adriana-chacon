@@ -38,7 +38,7 @@ export default function Home() {
           <Paintings />
         </section>
 
-        <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
+        <section>
           <Footer />
         </section>
 
