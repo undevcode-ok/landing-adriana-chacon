@@ -68,6 +68,7 @@ export const WORKSHOPS: Workshop[] = [
     time: "10:00",
     location: "Temperley, Bs. As.",
     duration: "2 horas",
+    note: "Cupos limitados",
     price: 11000,
     currency: "$",
     tags: [

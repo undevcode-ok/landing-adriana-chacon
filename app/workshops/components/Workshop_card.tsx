@@ -97,11 +97,11 @@ export function WorkshopCard({ workshop }: Props) {
           </div>
 
           <button className="
-            bg-[#ffd6a7] text-black
+            bg-amber-200 text-black
             px-5 py-[10px] rounded-[30px]
             text-lg font-black uppercase tracking-wide
             transition-all duration-200
-            hover:bg-[#441306] hover:text-white
+            hover:bg-amber-400 
           ">
             {workshop.soldOut ? "Sin cupos" : "Inscribite"}
           </button>
