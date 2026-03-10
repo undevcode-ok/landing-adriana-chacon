@@ -1,4 +1,4 @@
-import { Painting } from "../types/paintings.types";
+import { Painting } from "../types/paitings.types";
 
 export const PAINTINGS: Painting[] = [
   { src: "/students_paints/María_Del_Rosario.webp", author: "María Del Rosario" },
