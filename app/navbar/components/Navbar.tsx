@@ -10,7 +10,11 @@ import {
   faChalkboardUser,
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
-import { faCalendar, faCircleQuestion, faImage } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCalendar,
+  faCircleQuestion,
+  faImage,
+} from "@fortawesome/free-regular-svg-icons";
 import { NavItemId } from "../types/nav.types";
 import { NAV_ITEMS } from "../data/nav.data";
 import { TalleresMenu } from "./submenu/Talleres_menu";
@@ -25,14 +29,12 @@ const interTight = Inter_Tight({
 });
 
 const ICON_MAP = {
-  Hand:     faChalkboardUser,
-  Coffee:   faPaintBrush,
+  Hand: faChalkboardUser,
+  Coffee: faPaintBrush,
   Sparkles: faImage,
-  MapPin:   faLocationDot,
-  Crown:    faCrown,
+  MapPin: faLocationDot,
+  Crown: faCrown,
 };
-
-
 
 interface NavbarProps {
   openMenu: NavItemId | null;
@@ -41,15 +43,14 @@ interface NavbarProps {
 }
 
 export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
-  const [activeAction, setActiveAction] = useState<"calendar" | "faq" | null>(null);
+  const [activeAction, setActiveAction] = useState<"calendar" | "faq" | null>(
+    null,
+  );
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<NavItemId | null>(null);
   const [navHeight, setNavHeight] = useState("84px");
 
   const headerRef = useRef<HTMLElement>(null);
-
- 
-
 
   // Mide la altura real del header en cada resize y cuando cambia el mega menu
   useEffect(() => {
@@ -75,18 +76,18 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
   const hasOpenState = openMenu || mobileOpen;
 
   const closeAll = () => {
-  closeMenu();           // cierra desktop
-  setMobileOpen(false);  // cierra mobile
-  setMobileExpanded(null);
-};
+    closeMenu(); // cierra desktop
+    setMobileOpen(false); // cierra mobile
+    setMobileExpanded(null);
+  };
 
- const MEGA_MAP: Record<NavItemId, React.ReactNode> = {
-  talleres:   <TalleresMenu onClose={closeAll} />,
-  cafes:      <MegaCafes onClose={closeAll} />,
-  fiestas:    <MegaFiestas onClose={closeAll} />,
-  sedes:      <MegaSedes onClose={closeAll} />,
-  membresias: <MegaMembresias onClose={closeAll} />,
-};
+  const MEGA_MAP: Record<NavItemId, React.ReactNode> = {
+    talleres: <TalleresMenu onClose={closeAll} />,
+    cafes: <MegaCafes onClose={closeAll} />,
+    fiestas: <MegaFiestas onClose={closeAll} />,
+    sedes: <MegaSedes onClose={closeAll} />,
+    membresias: <MegaMembresias onClose={closeAll} />,
+  };
 
   return (
     <>
@@ -109,7 +110,10 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
 
       {/* Overlay desktop */}
       {openMenu && (
-        <div className="fixed inset-0 z-40 hidden lg:block" onClick={closeMenu} />
+        <div
+          className="fixed inset-0 z-40 hidden lg:block"
+          onClick={closeMenu}
+        />
       )}
 
       {/* Header — medido con ref */}
@@ -120,10 +124,14 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
       >
         {/* ── FILA PRINCIPAL ── */}
         <div className="relative flex items-center justify-between px-4 sm:px-8 lg:px-14 py-10 max-w-[1400px] mx-auto w-full">
-
           {/* Logo */}
           <div
-            className="-translate-x-1  lg:-translate-x-4  flex-shrink-0 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] lg:w-[88px] lg:h-[88px] bg-[#F5E642] rounded-2xl flex flex-col items-center justify-center cursor-pointer shadow-[3px_3px_0_rgba(0,0,0,0.25)] transform -rotate-12 hover:-rotate-16"
+            onClick={() =>
+              document
+                .querySelector("main")
+                ?.scrollTo({ top: 0, behavior: "smooth" })
+            }
+            className="-translate-x-1 lg:-translate-x-4 flex-shrink-0 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] lg:w-[88px] lg:h-[88px] bg-[#F5E642] rounded-2xl flex flex-col items-center justify-center cursor-pointer shadow-[3px_3px_0_rgba(0,0,0,0.25)] transform -rotate-12 hover:-rotate-16"
             style={{ fontFamily: "'Lilita One', cursive" }}
           >
             <span className="text-xl sm:text-2xl lg:text-3xl text-black leading-none tracking-tighter">
@@ -145,10 +153,17 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 >
                   <FontAwesomeIcon
                     icon={icon}
-                    style={{ color: item.iconColor, width: 28, height: 28, flexShrink: 0 }}
+                    style={{
+                      color: item.iconColor,
+                      width: 28,
+                      height: 28,
+                      flexShrink: 0,
+                    }}
                   />
-                  <span className={`text-[12px] xl:text-[13px] leading-tight text-left whitespace-nowrap
-                    ${isOpen ? "font-extrabold" : "font-semibold"}`}>
+                  <span
+                    className={`text-[12px] xl:text-[13px] leading-tight text-left whitespace-nowrap
+                    ${isOpen ? "font-extrabold" : "font-semibold"}`}
+                  >
                     {item.lines[0]}
                     <br />
                     {item.lines[1]}
@@ -160,7 +175,6 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
 
           {/* ── DERECHA ── */}
           <div className="flex items-center gap-2 text-black">
-
             {/* Calendario y FAQ — siempre visibles */}
             <div className="flex items-center gap-2">
               <button
@@ -168,7 +182,10 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 className={`group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm overflow-hidden
                   ${activeAction === "calendar" ? "bg-orange-100 hover:bg-orange-100" : "bg-white hover:bg-gray-100"}`}
               >
-                <FontAwesomeIcon icon={faCalendar} className="flex-shrink-0 w-6! h-6!" />
+                <FontAwesomeIcon
+                  icon={faCalendar}
+                  className="flex-shrink-0 w-6! h-6!"
+                />
                 <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-200 text-sm font-semibold whitespace-nowrap">
                   Calendario
                 </span>
@@ -198,7 +215,6 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
               </div>
               <span className="text-sm font-semibold">Menú</span>
             </button>
-
           </div>
         </div>
 
@@ -232,7 +248,6 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
           {/* Contenido centrado */}
           <div className="flex flex-col items-center w-full px-6 py-4">
             <div className="w-full max-w-[400px]">
-
               {/* Título */}
               <p className="text-center text-sm font-semibold text-black/50 tracking-wide mb-6">
                 Menú
@@ -251,7 +266,7 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                     <button
                       onClick={() =>
                         setMobileExpanded((prev) =>
-                          prev === item.id ? null : item.id
+                          prev === item.id ? null : item.id,
                         )
                       }
                       className="w-full flex items-center justify-between gap-4 py-5 border-none bg-transparent cursor-pointer group"
@@ -259,17 +274,26 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                       <div className="flex items-center gap-4">
                         <FontAwesomeIcon
                           icon={icon}
-                          style={{ color: item.iconColor, width: 26, height: 26, flexShrink: 0 }}
+                          style={{
+                            color: item.iconColor,
+                            width: 26,
+                            height: 26,
+                            flexShrink: 0,
+                          }}
                         />
-                        <span className={`text-[17px] text-black leading-tight text-left
-                          ${isExpanded ? "font-extrabold" : "font-bold"}`}>
+                        <span
+                          className={`text-[17px] text-black leading-tight text-left
+                          ${isExpanded ? "font-extrabold" : "font-bold"}`}
+                        >
                           {item.lines[0]} {item.lines[1]}
                         </span>
                       </div>
 
                       {/* Flecha circular — rota 90° cuando está expandido */}
-                      <div className={`flex-shrink-0 w-9 h-9 rounded-full bg-black flex items-center justify-center transition-transform duration-300
-                        ${isExpanded ? "rotate-90" : "group-hover:translate-x-1"}`}>
+                      <div
+                        className={`flex-shrink-0 w-9 h-9 rounded-full bg-black flex items-center justify-center transition-transform duration-300
+                        ${isExpanded ? "rotate-90" : "group-hover:translate-x-1"}`}
+                      >
                         <ArrowRight size={16} color="white" />
                       </div>
                     </button>
@@ -286,7 +310,6 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                   </div>
                 );
               })}
-
             </div>
           </div>
         </div>
