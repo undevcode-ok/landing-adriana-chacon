@@ -8,17 +8,17 @@ export function WorkshopSection() {
   const { activeCategory, setActiveCategoryById } = useActiveCategory();
 
   return (
-    <section className="w-full bg-[#FAF6EC] py-12 px-6">
+    <section className="w-full bg-[#FAF6EC] py-8 px-4 sm:py-10 sm:px-6">
       <div className="max-w-[1440px] mx-auto">
-        <div className="rounded-[28px] bg-[#fdcdc5] p-4 shadow-sm min-h-[700px]">
+        <div className="rounded-[28px] bg-[#fdcdc5] p-3 sm:p-4 shadow-sm flex flex-col lg:h-[680px]">
 
           {/* Mobile / tablet: apilado vertical */}
-          <div className="flex flex-col gap-4 lg:hidden">
+          <div className="flex flex-col gap-3 sm:gap-4 lg:hidden">
             <CategoryPanel
               activeCategory={activeCategory}
               onSelectAll={() => setActiveCategoryById("all")}
             />
-            <div className="bg-[#FAF6EC] rounded-[18px] p-5">
+            <div className="bg-[#FAF6EC] rounded-[18px] p-4 sm:p-5">
               <WorkshopCarousel
                 activeCategory={activeCategory}
                 setActiveCategoryById={setActiveCategoryById}
@@ -26,13 +26,13 @@ export function WorkshopSection() {
             </div>
           </div>
 
-          {/* Laptop / Desktop: lado a lado */}
-          <div className="hidden lg:grid grid-cols-[260px_1fr] gap-4 h-full">
+          {/* Desktop: lado a lado */}
+          <div className="hidden lg:grid grid-cols-[240px_1fr] xl:grid-cols-[260px_1fr] gap-4 flex-1">
             <CategoryPanel
               activeCategory={activeCategory}
               onSelectAll={() => setActiveCategoryById("all")}
             />
-            <div className="bg-[#FAF6EC] rounded-[18px] p-5">
+            <div className="bg-[#FAF6EC] rounded-[18px] p-5 h-full">
               <WorkshopCarousel
                 activeCategory={activeCategory}
                 setActiveCategoryById={setActiveCategoryById}
@@ -45,5 +45,3 @@ export function WorkshopSection() {
     </section>
   );
 }
-
-

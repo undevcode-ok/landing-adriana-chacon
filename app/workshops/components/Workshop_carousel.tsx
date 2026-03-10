@@ -74,11 +74,13 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, activeCategory.id, cardsPerPage]);
 
-  const tallImage = displayedCards.length < cardsPerPage;
+  const isCarousel = totalPages > 1;
 
   const gridCols =
-    cardsPerPage === 1 ? "grid-cols-1" :
-    cardsPerPage === 2 ? "grid-cols-2" :
+    displayedCards.length === 1 ? "grid-cols-1" :
+    displayedCards.length === 2 ? "grid-cols-2" :
+    cardsPerPage === 1           ? "grid-cols-1" :
+    cardsPerPage === 2           ? "grid-cols-2" :
     "grid-cols-3";
 
   return (
@@ -106,10 +108,10 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
             <button
               key={cat.id}
               onClick={() => setActiveCategoryById(cat.id)}
-              className={`px-3 py-1.5 rounded-full text-xs font-bold border-none cursor-pointer
+              className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold border-none cursor-pointer
                 transition-all duration-200 ${
                   activeCategory.id === cat.id
-                    ? "bg-[#2B1F1A] text-white shadow-sm"
+                    ? "bg-[#4EC5A0] text-white shadow-sm"
                     : "bg-[#E8DDD5] text-[#2B1F1A] hover:bg-[#D0C4B0]"
                 }`}
             >
@@ -133,11 +135,8 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
               <WorkshopCard
                 key={workshop.id}
                 workshop={workshop}
-                tallImage={tallImage}
+                isCarousel={isCarousel}
               />
-            ))}
-            {Array.from({ length: cardsPerPage - displayedCards.length }).map((_, i) => (
-              <div key={`empty-${i}`} />
             ))}
           </div>
         ) : (
@@ -148,7 +147,7 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
           </div>
         )}
 
-        {/* Navegación */}
+        {/* Navegación — siempre ocupa espacio */}
         <div className={totalPages > 1 ? "visible" : "invisible"}>
           <CarouselNav
             currentPage={currentPage}

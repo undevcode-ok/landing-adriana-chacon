@@ -17,7 +17,7 @@ export function WorkshopTag({ tag }: Props) {
     <span
       className={`
         inline-block rounded-[8px] px-2 py-[3px]
-        text-[10px] font-black uppercase tracking-wide
+        text-xs font-black uppercase tracking-wide
         ${colorMap[tag.color]}
       `}
     >
