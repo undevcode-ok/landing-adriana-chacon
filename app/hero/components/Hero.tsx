@@ -5,6 +5,7 @@ import { Barlow_Condensed, Inter_Tight } from "next/font/google";
 import { HERO_TABS, IMAGES_LEFT, IMAGES_RIGHT } from "../data/hero.data";
 import { ScrollColumn } from "./Scroll_collumn";
 import { ScrollRow } from "./Scroll_row";
+import { NavItemId } from "@/app/navbar/types/nav.types";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["900"] });
 const interTight = Inter_Tight({
@@ -42,9 +43,10 @@ function Tabs({ active, setActive }: { active: number; setActive: (i: number) =>
   );
 }
 
-function CtaButton({ label }: { label: string }) {
+function CtaButton({ label, onClick }: { label: string; onClick?: () => void }) {
   return (
     <button
+    onClick={onClick}
       className={`${interTight.className} bg-[#F5E642] text-black font-extrabold rounded-full
         px-6 py-3 lg:px-8 lg:py-3.5 text-sm
         hover:bg-amber-400 transition-all duration-200 cursor-pointer`}
@@ -54,9 +56,10 @@ function CtaButton({ label }: { label: string }) {
   );
 }
 
-function ArrowLink({ label }: { label: string }) {
+function ArrowLink({ label, onClick }: { label: string; onClick?: () => void }) {
   return (
     <button
+    onClick={onClick}
       className={`${interTight.className} mt-4 ml-2 group flex items-center gap-1.5 text-white
         font-extrabold text-sm bg-transparent border-none cursor-pointer`}
     >
@@ -66,7 +69,7 @@ function ArrowLink({ label }: { label: string }) {
   );
 }
 
-export function Hero() {
+export function Hero({ onOpenMenu }: { onOpenMenu?: (id: NavItemId) => void }) {
   const [active, setActive] = useState(0);
   const tab = HERO_TABS[active];
 
@@ -108,8 +111,20 @@ export function Hero() {
       {tab.subtitle}
     </p>
     <div className="flex flex-col gap-3 items-start">
-      <CtaButton label={tab.btnLabel} />
-      <ArrowLink label={tab.linkLabel} />
+      <CtaButton
+  label={tab.btnLabel}
+  onClick={() => document.getElementById(tab.btnScrollTo)?.scrollIntoView({ behavior: "smooth" })}
+/>
+      <ArrowLink
+  label={tab.linkLabel}
+  onClick={() => {
+    if (tab.id === "workshops") {
+      onOpenMenu?.("fiestas");
+    } else {
+      document.getElementById(tab.linkScrollTo)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+/>
     </div>
   </div>
   <div className="mt-4 w-full">
@@ -145,8 +160,20 @@ export function Hero() {
       {tab.subtitle}
     </p>
     <div className="flex flex-col gap-3 items-start">
-      <CtaButton label={tab.btnLabel} />
-      <ArrowLink label={tab.linkLabel} />
+      <CtaButton
+  label={tab.btnLabel}
+  onClick={() => document.getElementById(tab.btnScrollTo)?.scrollIntoView({ behavior: "smooth" })}
+/>
+      <ArrowLink
+  label={tab.linkLabel}
+  onClick={() => {
+    if (tab.id === "workshops") {
+      onOpenMenu?.("fiestas");
+    } else {
+      document.getElementById(tab.linkScrollTo)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+/>
     </div>
   </div>
 </div>
@@ -198,8 +225,20 @@ export function Hero() {
               {tab.subtitle}
             </p>
             <div className="flex flex-col gap-4 items-start animate-fadeUp" style={{ animationDelay: "120ms" }}>
-              <CtaButton label={tab.btnLabel} />
-              <ArrowLink label={tab.linkLabel} />
+              <CtaButton
+  label={tab.btnLabel}
+  onClick={() => document.getElementById(tab.btnScrollTo)?.scrollIntoView({ behavior: "smooth" })}
+/>
+      <ArrowLink
+  label={tab.linkLabel}
+  onClick={() => {
+    if (tab.id === "workshops") {
+      onOpenMenu?.("fiestas");
+    } else {
+      document.getElementById(tab.linkScrollTo)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+/>
             </div>
           </div>
         </div>
@@ -252,8 +291,20 @@ export function Hero() {
               {tab.subtitle}
             </p>
             <div className="flex flex-col items-center gap-4 items-start animate-fadeUp" style={{ animationDelay: "120ms" }}>
-              <CtaButton label={tab.btnLabel} />
-              <ArrowLink label={tab.linkLabel} />
+              <CtaButton
+  label={tab.btnLabel}
+  onClick={() => document.getElementById(tab.btnScrollTo)?.scrollIntoView({ behavior: "smooth" })}
+/>
+      <ArrowLink
+  label={tab.linkLabel}
+  onClick={() => {
+    if (tab.id === "workshops") {
+      onOpenMenu?.("fiestas");
+    } else {
+      document.getElementById(tab.linkScrollTo)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+/>
             </div>
           </div>
         </div>

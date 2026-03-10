@@ -9,8 +9,10 @@ export const HERO_TABS: HeroTab[] = [
     title: "Mi Pasión\npor\nla  Pintura.",
     subtitle:
       "Con años de experiencia, exploro paisajes, retratos y pintura de caballete\ncon un estilo propio que refleja mi técnica y dedicación.\nMis obras han sido publicadas en revistas como Ediciones Bienvenidas.",
-    btnLabel: "Ver mis obras",
+    btnLabel: "Ver mi taller online",
     linkLabel: "saber más",
+    btnScrollTo: "social",      // ← Ver mis obras → social
+    linkScrollTo: "fiestas",
   },
   {
     id: "parties",
@@ -20,8 +22,10 @@ export const HERO_TABS: HeroTab[] = [
     title: "Donde Nace\nla\nCreatividad.",
     subtitle:
       "En Mi Taller, cada alumno desarrolla su creatividad en un espacio cálido y guiado.\nCada obra es única y refleja su esfuerzo y talento.\nAprenden técnica y disfrutan creando en comunidad.",
-    btnLabel: "Ver trabajos de los alumnos",
+    btnLabel: "Descubrí los cursos",
     linkLabel: "Inspirarme",
+    btnScrollTo: "workshop",    // ← Ver trabajos → talleres
+    linkScrollTo: "gallery",
   },
 ];
 

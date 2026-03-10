@@ -19,26 +19,26 @@ export default function Home() {
       <main className="lg:h-screen lg:overflow-y-scroll  lg:snap-mandatory">
 
         <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
-          <Hero />
+          <Hero onOpenMenu={toggleMenu} />
         </section>
 
-        <section className="lg:h-screen lg:overflow-hidden lg:snap-start flex flex-col">
+        <section id="social" className="lg:h-screen lg:overflow-hidden lg:snap-start flex flex-col">
           <Social />
         </section>
 
-        <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
+        <section id="workshop" className="lg:h-screen lg:overflow-hidden lg:snap-start" style={{ scrollMarginTop: "140px" }}>
           <WorkshopSection />
         </section>
 
-        <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
+        <section id="rocommendations" className="lg:h-screen lg:overflow-hidden lg:snap-start">
           <Recommendations />
         </section>
 
-        <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
+        <section id="gallery" className="lg:h-screen lg:overflow-hidden lg:snap-start">
           <Paintings />
         </section>
 
-        <section>
+        <section id="contact">
           <Footer />
         </section>
 

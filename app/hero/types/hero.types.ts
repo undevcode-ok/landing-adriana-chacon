@@ -9,4 +9,6 @@ export interface HeroTab {
   subtitle: string;
   btnLabel: string;
   linkLabel: string;
+  btnScrollTo: string;   
+  linkScrollTo: string;
 }

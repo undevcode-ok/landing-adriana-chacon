@@ -20,4 +20,5 @@ export interface MegaCategoryCard {
 export interface BottomLink {
   label: string;
   sub?: string;
+  href?: string;
 }

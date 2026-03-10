@@ -73,8 +73,8 @@ export const TALLERES_CATEGORIES: MegaCategoryCard[] = [
 ];
 
 export const TALLERES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Explora tus posibilidades creativas", sub: "Descubre todos los talleres y técnicas disponibles" },
-  { label: "Consulta nuestro calendario", sub: "Todos los talleres y cursos en un solo lugar" },
+  { label: "Explora tus posibilidades creativas", sub: "Descubre todos los talleres y técnicas disponibles",  href: "#workshop" },
+  { label: "Consulta nuestro calendario", sub: "Todos los talleres y cursos en un solo lugar", href: "#workshop" },
 ];
 
 export const TALLERES_HERO_TAGS = [
@@ -106,8 +106,8 @@ export const CAFES_LOCATIONS: MegaCategoryCard[] = [
 ];
 
 export const CAFES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Mis obras", sub: "Descubrí mis creaciones y técnicas" },
-  { label: "Galería de alumnos", sub: "Explorá la creatividad de mis estudiantes" },
+  { label: "Mis obras", sub: "Descubrí mis creaciones y técnicas", href: "#gallery" },
+  { label: "Galería de alumnos", sub: "Explorá la creatividad de mis estudiantes", href: "#gallery" },
 ];
 
 /* ── FIESTAS ── */
@@ -121,8 +121,8 @@ export const FIESTAS_CATEGORIES: MegaCategoryCard[] = [
 ];
 
 export const FIESTAS_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Síguenos en redes", sub: "Descubrí nuestras novedades y creaciones" },
-  { label: "Contáctame", sub: "Estamos para responder tus dudas" },
+  { label: "Síguenos en redes", sub: "Descubrí nuestras novedades y creaciones", href: "#social" },
+  { label: "Contáctame", sub: "Estamos para responder tus dudas", href: "#contact" },
 ];
 
 /* ── SEDES ── */
@@ -151,8 +151,8 @@ export const SEDES_LOCATIONS = [
 ];
 
 export const SEDES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Nuestra sede", sub: "Visitanos en San Patricio, Temperley" },
-  { label: "Horarios y visitas", sub: "Conocé los días y horarios de los talleres" },
+  { label: "Nuestra sede", sub: "Visitanos en San Patricio, Temperley", href: "https://www.google.com/maps/place/El+Taller+De+Adriana+Chac%C3%B3n/@-34.7520172,-58.3696269,17z/data=!3m1!4b1!4m6!3m5!1s0x95a32d4a0dea6a71:0x60416eaccfa73378!8m2!3d-34.7520216!4d-58.367052!16s%2Fg%2F1tpbd4sb?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D" },
+  { label: "Horarios y visitas", sub: "Conocé los días y horarios de los talleres", href: "#workshop" },
 ];
 
 /* ── MEMBRESÍAS ── */

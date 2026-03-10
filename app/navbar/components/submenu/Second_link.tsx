@@ -117,7 +117,7 @@ function BioCard() {
   );
 }
 
-export function MegaFiestas() {
+export function MegaFiestas({ onClose }: { onClose?: () => void }) {
   return (
     <div>
       {/* ── MOBILE (< 640px): foto arriba, bio abajo ── */}
@@ -141,7 +141,7 @@ export function MegaFiestas() {
         <BioCard />
       </div>
 
-      <BottomLinks links={FIESTAS_BOTTOM_LINKS} />
+      <BottomLinks links={FIESTAS_BOTTOM_LINKS} onClose={onClose} />
     </div>
   );
 }

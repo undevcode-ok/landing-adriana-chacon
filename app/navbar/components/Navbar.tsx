@@ -32,13 +32,7 @@ const ICON_MAP = {
   Crown:    faCrown,
 };
 
-const MEGA_MAP: Record<NavItemId, React.ReactNode> = {
-  talleres:   <TalleresMenu />,
-  cafes:      <MegaCafes />,
-  fiestas:    <MegaFiestas />,
-  sedes:      <MegaSedes />,
-  membresias: <MegaMembresias />,
-};
+
 
 interface NavbarProps {
   openMenu: NavItemId | null;
@@ -53,6 +47,9 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
   const [navHeight, setNavHeight] = useState("84px");
 
   const headerRef = useRef<HTMLElement>(null);
+
+ 
+
 
   // Mide la altura real del header en cada resize y cuando cambia el mega menu
   useEffect(() => {
@@ -76,6 +73,20 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
   };
 
   const hasOpenState = openMenu || mobileOpen;
+
+  const closeAll = () => {
+  closeMenu();           // cierra desktop
+  setMobileOpen(false);  // cierra mobile
+  setMobileExpanded(null);
+};
+
+ const MEGA_MAP: Record<NavItemId, React.ReactNode> = {
+  talleres:   <TalleresMenu onClose={closeAll} />,
+  cafes:      <MegaCafes onClose={closeAll} />,
+  fiestas:    <MegaFiestas onClose={closeAll} />,
+  sedes:      <MegaSedes onClose={closeAll} />,
+  membresias: <MegaMembresias onClose={closeAll} />,
+};
 
   return (
     <>

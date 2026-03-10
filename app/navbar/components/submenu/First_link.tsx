@@ -46,7 +46,7 @@ const BLOB_COLORS_1 = ["#FFB3C1", "#A8D8EA", "#B5EAD7", "#FFDAC1"];
 const BLOB_COLORS_2 = ["#B5EAD7", "#FFDAC1", "#FFB3C1", "#A8D8EA"];
 
 /* ── Hero card reutilizable ── */
-function HeroCard() {
+function HeroCard({ onClose }: { onClose?: () => void }) {
   return (
     <div
       className="rounded-[20px] overflow-hidden relative flex flex-col justify-center p-5 group
@@ -77,6 +77,12 @@ function HeroCard() {
           creaciones que se comparten.
         </h2>
         <button
+        onClick={() => {
+              onClose?.();
+              document
+                .getElementById("gallery")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
           className={`${interTight.className} self-center bg-yellow-300 text-black font-extrabold rounded-full
             px-4 py-2 lg:px-5 lg:py-2.5 mt-1 lg:mt-2 text-xs lg:text-sm
             border-2 border-yellow-300 hover:bg-amber-400 hover:border-amber-400
@@ -110,14 +116,14 @@ function PaintCard({ src, blobColors }: { src: string; blobColors: string[] }) {
   );
 }
 
-export function MegaCafes() {
+export function MegaCafes({ onClose }: { onClose?: () => void }) {
   const [img1, img2] = useMemo(() => pickRandom(STUDENTS_PAINTS, 2), []);
 
   return (
     <div>
       {/* ── MOBILE (< 640px): stack vertical ── */}
       <div className="flex sm:hidden flex-col gap-3 p-4">
-        <HeroCard />
+        <HeroCard onClose={onClose} />
         <div className="grid grid-cols-2 gap-3">
           <PaintCard src={img1} blobColors={BLOB_COLORS_1} />
           <PaintCard src={img2} blobColors={BLOB_COLORS_2} />
@@ -131,7 +137,7 @@ export function MegaCafes() {
       >
         {/* Hero ocupa las 2 columnas */}
         <div className="col-span-2">
-          <HeroCard />
+          <HeroCard onClose={onClose} />
         </div>
         <PaintCard src={img1} blobColors={BLOB_COLORS_1} />
         <PaintCard src={img2} blobColors={BLOB_COLORS_2} />
@@ -142,12 +148,12 @@ export function MegaCafes() {
         className="hidden lg:grid gap-3 p-5"
         style={{ gridTemplateColumns: "2fr 1fr 1fr" }}
       >
-        <HeroCard />
+        <HeroCard onClose={onClose} />
         <PaintCard src={img1} blobColors={BLOB_COLORS_1} />
         <PaintCard src={img2} blobColors={BLOB_COLORS_2} />
       </div>
 
-      <BottomLinks links={CAFES_BOTTOM_LINKS} />
+      <BottomLinks links={CAFES_BOTTOM_LINKS} onClose={onClose} />
     </div>
   );
 }
