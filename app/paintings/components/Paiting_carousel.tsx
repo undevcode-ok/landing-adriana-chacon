@@ -14,8 +14,9 @@ export function PaintingsCarousel({ onSelect }: Props) {
   const doubled = [...PAINTINGS, ...PAINTINGS];
 
   return (
+    /* pt-3 da espacio para el hover:-translate-y-2, overflow-hidden solo en x */
     <div
-      className="w-full overflow-hidden"
+      className="w-full overflow-x-hidden overflow-y-visible pt-3"
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
