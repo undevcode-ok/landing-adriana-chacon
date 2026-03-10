@@ -74,7 +74,6 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, activeCategory.id, cardsPerPage]);
 
-  const isCarousel = totalPages > 1;
 
   const gridCols =
     displayedCards.length === 1 ? "grid-cols-1" :
@@ -135,7 +134,6 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
               <WorkshopCard
                 key={workshop.id}
                 workshop={workshop}
-                isCarousel={isCarousel}
               />
             ))}
           </div>
