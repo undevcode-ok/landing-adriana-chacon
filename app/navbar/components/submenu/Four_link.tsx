@@ -131,7 +131,7 @@ const SEDES = [
   },
 ];
 
-export function MegaSedes() {
+export function MegaSedes({ onClose }: { onClose?: () => void }) {
   return (
     <div>
       {/* ── MOBILE (< 640px): stack vertical ── */}
@@ -158,7 +158,7 @@ export function MegaSedes() {
         ))}
       </div>
 
-      <BottomLinks links={SEDES_BOTTOM_LINKS} />
+      <BottomLinks links={SEDES_BOTTOM_LINKS} onClose={onClose} />
     </div>
   );
 }

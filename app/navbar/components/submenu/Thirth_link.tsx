@@ -2,7 +2,7 @@
 import { MEMBRESIAS_CARDS, MEMBRESIAS_BOTTOM_LINKS } from "../../data/nav.data";
 import { BottomLinks } from "./Links_bottom";
 
-export function MegaMembresias() {
+export function MegaMembresias({ onClose }: { onClose?: () => void }) {
   return (
     <div>
       <div className="grid gap-4 p-5" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
@@ -18,7 +18,7 @@ export function MegaMembresias() {
           </div>
         ))}
       </div>
-      <BottomLinks links={MEMBRESIAS_BOTTOM_LINKS} />
+      <BottomLinks links={MEMBRESIAS_BOTTOM_LINKS}  onClose={onClose}/>
     </div>
   );
 }
