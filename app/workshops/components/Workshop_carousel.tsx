@@ -4,10 +4,8 @@ import { Inter_Tight } from "next/font/google";
 import { useState, useEffect, useRef } from "react";
 import { WORKSHOPS } from "../data/workshop.data";
 import { CATEGORIES } from "../data/categories.data";
-import {
-  useWorkshopCarousel,
-  CARDS_PER_PAGE,
-} from "../hooks/use_workshop_carousel";
+import { useWorkshopCarousel } from "../hooks/use_workshop_carousel";
+import { useCardsPerPage } from "../hooks/use_card_per_page";
 import { WorkshopCard } from "./Workshop_card";
 import { CarouselNav } from "./Carousel_nav";
 import { Category } from "../types/workshop.types";
@@ -22,24 +20,16 @@ type Props = {
   setActiveCategoryById: (id: string) => void;
 };
 
-export function WorkshopCarousel({
-  activeCategory,
-  setActiveCategoryById,
-}: Props) {
+export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Props) {
+  const cardsPerPage = useCardsPerPage();
+
   const filtered =
     activeCategory.id === "all"
       ? WORKSHOPS
       : WORKSHOPS.filter((w) => w.categoryId === activeCategory.id);
 
-  const {
-    currentPage,
-    totalPages,
-    goToPage,
-    goNext,
-    goPrev,
-    pauseAuto,
-    resumeAuto,
-  } = useWorkshopCarousel(filtered);
+  const { currentPage, totalPages, goToPage, goNext, goPrev, pauseAuto, resumeAuto } =
+    useWorkshopCarousel(filtered, cardsPerPage);
 
   const prevCatRef = useRef(activeCategory.id);
   useEffect(() => {
@@ -49,14 +39,14 @@ export function WorkshopCarousel({
     }
   }, [activeCategory.id, goToPage]);
 
-  const start = currentPage * CARDS_PER_PAGE;
-  const visible = filtered.slice(start, start + CARDS_PER_PAGE);
+  const start   = currentPage * cardsPerPage;
+  const visible = filtered.slice(start, start + cardsPerPage);
 
   const [displayedCards, setDisplayedCards] = useState(visible);
-  const [phase, setPhase] = useState<"idle" | "exit" | "enter">("idle");
-  const [slideDir, setSlideDir] = useState<"left" | "right">("left");
-  const prevPageRef = useRef(currentPage);
-  const prevCatAnimRef = useRef(activeCategory.id);
+  const [phase, setPhase]                   = useState<"idle" | "exit" | "enter">("idle");
+  const [slideDir, setSlideDir]             = useState<"left" | "right">("left");
+  const prevPageRef                         = useRef(currentPage);
+  const prevCatAnimRef                      = useRef(activeCategory.id);
 
   useEffect(() => {
     const catChanged = prevCatAnimRef.current !== activeCategory.id;
@@ -80,12 +70,16 @@ export function WorkshopCarousel({
     }, 180);
     const t2 = setTimeout(() => setPhase("idle"), 180 + 300);
 
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, activeCategory.id]);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage, activeCategory.id, cardsPerPage]);
+
+  const tallImage = displayedCards.length < cardsPerPage;
+
+  const gridCols =
+    cardsPerPage === 1 ? "grid-cols-1" :
+    cardsPerPage === 2 ? "grid-cols-2" :
+    "grid-cols-3";
 
   return (
     <>
@@ -106,7 +100,7 @@ export function WorkshopCarousel({
         onMouseEnter={pauseAuto}
         onMouseLeave={resumeAuto}
       >
-        {/* Pills — sin el "all" */}
+        {/* Pills */}
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.filter((cat) => cat.id !== "all").map((cat) => (
             <button
@@ -115,8 +109,8 @@ export function WorkshopCarousel({
               className={`px-3 py-1.5 rounded-full text-xs font-bold border-none cursor-pointer
                 transition-all duration-200 ${
                   activeCategory.id === cat.id
-                    ? "bg-[#4EC5A0] text-white shadow-sm"
-                    : "bg-amber-200 text-black hover:bg-amber-400 "
+                    ? "bg-[#2B1F1A] text-white shadow-sm"
+                    : "bg-[#E8DDD5] text-[#2B1F1A] hover:bg-[#D0C4B0]"
                 }`}
             >
               {cat.label}
@@ -127,26 +121,24 @@ export function WorkshopCarousel({
         {/* Cards */}
         {displayedCards.length > 0 ? (
           <div
-            className={`grid grid-cols-3 gap-4 flex-1 ${
+            className={`grid ${gridCols} gap-4 flex-1 ${
               phase === "exit"
-                ? slideDir === "left"
-                  ? "ws-exit-left"
-                  : "ws-exit-right"
+                ? slideDir === "left" ? "ws-exit-left" : "ws-exit-right"
                 : phase === "enter"
-                  ? slideDir === "left"
-                    ? "ws-enter-left"
-                    : "ws-enter-right"
-                  : ""
+                ? slideDir === "left" ? "ws-enter-left" : "ws-enter-right"
+                : ""
             }`}
           >
             {displayedCards.map((workshop) => (
-              <WorkshopCard key={workshop.id} workshop={workshop} />
+              <WorkshopCard
+                key={workshop.id}
+                workshop={workshop}
+                tallImage={tallImage}
+              />
             ))}
-            {Array.from({ length: CARDS_PER_PAGE - displayedCards.length }).map(
-              (_, i) => (
-                <div key={`empty-${i}`} />
-              ),
-            )}
+            {Array.from({ length: cardsPerPage - displayedCards.length }).map((_, i) => (
+              <div key={`empty-${i}`} />
+            ))}
           </div>
         ) : (
           <div className="flex-1 flex items-center justify-center">

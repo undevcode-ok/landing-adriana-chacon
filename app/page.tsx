@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Navbar openMenu={openMenu} toggleMenu={toggleMenu} closeMenu={closeMenu} />
 
-      <main className="lg:h-screen lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
+      <main className="lg:h-screen lg:overflow-y-scroll  lg:snap-mandatory">
 
         <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
           <Hero />

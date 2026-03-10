@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Workshop } from "../types/workshop.types";
 
-export const CARDS_PER_PAGE = 3; // default — kept for backward compat
 const AUTO_DELAY_MS = 6500;
 
 type UseWorkshopCarouselReturn = {
@@ -16,19 +15,11 @@ type UseWorkshopCarouselReturn = {
   resumeAuto: () => void;
 };
 
-export function useWorkshopCarousel(
-  workshops: Workshop[],
-  cardsPerPage: number = CARDS_PER_PAGE
-): UseWorkshopCarouselReturn {
-  const totalPages = Math.max(1, Math.ceil(workshops.length / cardsPerPage));
+export function useWorkshopCarousel(workshops: Workshop[], cardsPerPage: number): UseWorkshopCarouselReturn {
+  const totalPages = Math.ceil(workshops.length / cardsPerPage);
   const [currentPage, setCurrentPage] = useState(0);
-  const timerRef  = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pausedRef = useRef(false);
-
-  // Reset to page 0 when cardsPerPage or workshops change
-  useEffect(() => {
-    setCurrentPage(0);
-  }, [cardsPerPage, workshops.length]);
 
   const goToPage = useCallback(
     (page: number) => {
@@ -54,6 +45,11 @@ export function useWorkshopCarousel(
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [currentPage, scheduleNext]);
 
+  // Reset a página 0 cuando cambia cardsPerPage
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [cardsPerPage]);
+
   const pauseAuto = useCallback(() => {
     pausedRef.current = true;
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -66,3 +62,5 @@ export function useWorkshopCarousel(
 
   return { currentPage, totalPages, goToPage, goNext, goPrev, pauseAuto, resumeAuto };
 }
+
+export const CARDS_PER_PAGE = 3;

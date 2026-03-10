@@ -1,24 +1,34 @@
 "use client";
-import { useState, useCallback } from "react";
 
-const VISIBLE = 3; // cards visible at once
+import { useEffect, useRef } from "react";
+import { PAINTINGS, CARD_WIDTH, CARD_GAP } from "../data/paitings.data";
 
-export function useCarousel(total: number) {
-  const [index, setIndex] = useState(0);
+const SPEED = 0.5; // px por frame
 
-  const maxIndex = total - VISIBLE;
+export function useCarousel() {
+  const trackRef  = useRef<HTMLDivElement>(null);
+  const posRef    = useRef(0);
+  const rafRef    = useRef<number>(0);
+  const pausedRef = useRef(false);
 
-  const prev = useCallback(() => {
-    setIndex((i) => Math.max(i - 1, 0));
+  useEffect(() => {
+    const totalWidth = PAINTINGS.length * (CARD_WIDTH + CARD_GAP);
+
+    const animate = () => {
+      if (!pausedRef.current && trackRef.current) {
+        posRef.current += SPEED;
+        if (posRef.current >= totalWidth) posRef.current = 0;
+        trackRef.current.style.transform = `translateX(-${posRef.current}px)`;
+      }
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
-  const next = useCallback(() => {
-    setIndex((i) => Math.min(i + 1, maxIndex));
-  }, [maxIndex]);
+  const pause  = () => { pausedRef.current = true;  };
+  const resume = () => { pausedRef.current = false; };
 
-  const goTo = useCallback((i: number) => {
-    setIndex(Math.min(Math.max(i, 0), maxIndex));
-  }, [maxIndex]);
-
-  return { index, prev, next, goTo, maxIndex, visible: VISIBLE };
+  return { trackRef, pause, resume };
 }
