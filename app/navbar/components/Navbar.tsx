@@ -64,6 +64,19 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
     return () => window.removeEventListener("resize", update);
   }, [openMenu]);
 
+  // Cuando openMenu cambia desde fuera (ej: Hero) y estamos en mobile,
+  // abrimos el menú mobile con el ítem expandido
+  useEffect(() => {
+    if (!openMenu) return;
+    const isMobile = window.innerWidth < 1024;
+    if (isMobile) {
+      setMobileOpen(true);
+      setMobileExpanded(openMenu);
+      // Limpiamos openMenu para que no interfiera con el estado desktop
+      closeMenu();
+    }
+  }, [openMenu, closeMenu]);
+
   const handleAction = (action: "calendar" | "faq") => {
     setActiveAction((prev) => (prev === action ? null : action));
   };
@@ -190,17 +203,6 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                   Calendario
                 </span>
               </button>
-
-              {/*<button
-                onClick={() => handleAction("faq")}
-                className={`group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm overflow-hidden
-                  ${activeAction === "faq" ? "bg-orange-100 hover:bg-orange-100" : "bg-white hover:bg-gray-100"}`}
-              >
-                <FontAwesomeIcon icon={faCircleQuestion} className="flex-shrink-0 w-6! h-6!" />
-                <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-200 text-sm font-semibold whitespace-nowrap">
-                  FAQ
-                </span>
-              </button>*/}
             </div>
 
             {/* Botón Menú con animación hamburger → X */}
