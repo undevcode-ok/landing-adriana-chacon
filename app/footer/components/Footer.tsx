@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FOOTER_DATA } from "../data/footer.data";
 import { useNewsletter } from "../hooks/use_newsletter";
+import { NavItemId } from "@/app/navbar/types/nav.types";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -121,7 +122,8 @@ function LogoBlock({
   return (
     <div className="flex flex-col gap-4">
       <div
-        className={`${barlow.className} ${logoTextCls} flex items-center justify-center text-black`}
+        onClick={() => document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`${barlow.className} ${logoTextCls} flex items-center justify-center text-black cursor-pointer`}
         style={{
           background: "#F5E642",
           borderRadius: logoRadius,
@@ -157,7 +159,30 @@ function LogoBlock({
 }
 
 /* -- Reusable nav column -- */
-function NavColumn({ col }: { col: (typeof FOOTER_DATA.columns)[number] }) {
+function NavColumn({
+  col,
+  onOpenMenu,
+}: {
+  col: (typeof FOOTER_DATA.columns)[number];
+  onOpenMenu?: (id: NavItemId) => void;
+}) {
+  const handleClick = (href: string) => {
+    if (href.startsWith("nav:")) {
+      onOpenMenu?.(href.replace("nav:", "") as NavItemId);
+      return;
+    }
+    if (href.startsWith("http")) {
+      window.open(href, "_blank");
+      return;
+    }
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    const main = document.querySelector("main");
+    if (el && main) {
+      main.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="flex flex-col gap-3">
       <p
@@ -169,13 +194,13 @@ function NavColumn({ col }: { col: (typeof FOOTER_DATA.columns)[number] }) {
       <ul className="flex flex-col gap-2">
         {col.links.map((l) => (
           <li key={l.label}>
-            <a
-              href={l.href}
-              className="text-sm transition-colors duration-200 hover:text-white"
+            <button
+              onClick={() => handleClick(l.href)}
+              className="text-sm transition-colors duration-200 hover:text-white bg-transparent border-none cursor-pointer p-0 text-left"
               style={{ color: "rgba(255,255,255,0.5)" }}
             >
               {l.label}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
@@ -303,17 +328,7 @@ function DevCredit() {
   );
 }
 
-/* ======================================================
-   MAIN FOOTER
-   -----------------------------------------------------
-   Breakpoints:
-   * default  (< 640px)   → MOBILE:   1 col stacked
-   * sm       (640-767px) → TABLET:   2 col top + nav row
-   * md       (768-1023px)→ TABLET+:  2 col top + nav row (wider)
-   * lg       (1024-1279) → NOTEBOOK: 4-col grid, compact
-   * xl       (1280px+)   → DESKTOP:  4-col grid, generous
-   ====================================================== */
-export function Footer() {
+export function Footer({ onOpenMenu }: { onOpenMenu?: (id: NavItemId) => void }) {
   const {
     tagline,
     description,
@@ -349,11 +364,9 @@ export function Footer() {
         {/* -- MOBILE (< 640px): single column -- */}
         <div className="flex flex-col gap-8 sm:hidden">
           <LogoBlock size="sm" tagline={tagline} description={description} />
-
           <div className="grid grid-cols-2 gap-6">
-            {columns.map((col) => <NavColumn key={col.title} col={col} />)}
+            {columns.map((col) => <NavColumn key={col.title} col={col} onOpenMenu={onOpenMenu} />)}
           </div>
-
           <div className="flex flex-col gap-4">
             <ContactBlock address={address} email={email} instagram={instagram} />
             <SocialIcons socials={socials} />
@@ -362,7 +375,6 @@ export function Footer() {
 
         {/* -- TABLET (640px - 1023px): 2-col top + nav row -- */}
         <div className="hidden sm:flex flex-col gap-10 lg:hidden">
-          {/* Row 1: logo-left, contact+newsletter-right */}
           <div className="grid grid-cols-2 gap-8 md:gap-12">
             <LogoBlock size="sm" tagline={tagline} description={description} />
             <div className="flex flex-col gap-4">
@@ -370,8 +382,6 @@ export function Footer() {
               <SocialIcons socials={socials} />
             </div>
           </div>
-
-          {/* Row 2: nav columns */}
           <div
             className="grid gap-8 pt-8 border-t"
             style={{
@@ -379,7 +389,7 @@ export function Footer() {
               borderColor: "rgba(255,255,255,0.08)",
             }}
           >
-            {columns.map((col) => <NavColumn key={col.title} col={col} />)}
+            {columns.map((col) => <NavColumn key={col.title} col={col} onOpenMenu={onOpenMenu} />)}
           </div>
         </div>
 
@@ -389,7 +399,7 @@ export function Footer() {
           style={{ gridTemplateColumns: "1.4fr 1fr 1fr 1.15fr", gap: "2.5rem" }}
         >
           <LogoBlock size="lg" tagline={tagline} description={description} />
-          {columns.map((col) => <NavColumn key={col.title} col={col} />)}
+          {columns.map((col) => <NavColumn key={col.title} col={col} onOpenMenu={onOpenMenu} />)}
           <div className="flex flex-col gap-4">
             <ContactBlock address={address} email={email} instagram={instagram} />
             <SocialIcons socials={socials} />
@@ -402,7 +412,7 @@ export function Footer() {
           style={{ gridTemplateColumns: "1.5fr 1fr 1fr 1.2fr", gap: "3.5rem" }}
         >
           <LogoBlock size="lg" tagline={tagline} description={description} />
-          {columns.map((col) => <NavColumn key={col.title} col={col} />)}
+          {columns.map((col) => <NavColumn key={col.title} col={col} onOpenMenu={onOpenMenu} />)}
           <div className="flex flex-col gap-4">
             <ContactBlock address={address} email={email} instagram={instagram} />
             <SocialIcons socials={socials} />

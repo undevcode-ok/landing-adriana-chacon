@@ -39,7 +39,7 @@ export default function Home() {
         </section>
 
         <section id="contact">
-          <Footer />
+          <Footer onOpenMenu={toggleMenu} />
         </section>
 
       </main>

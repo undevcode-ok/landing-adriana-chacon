@@ -48,34 +48,31 @@ export const FOOTER_DATA: FooterData = {
       href: "https://www.tumblr.com/adrianachacontallerdearte",
       bg: "#35465C",
     },
-
   ],
   columns: [
     {
-      title: "Talleres",
+      title: "Explorá",
       links: [
-        { label: "Pintura Tradicional", href: "#" },
-        { label: "Arte Abstracto", href: "#" },
-        { label: "Técnicas Avanzadas", href: "#" },
-        { label: "Mix Media", href: "#" },
-        { label: "Proyectos Urbanos", href: "#" },
+        { label: "Redes Sociales",          href: "#social" },
+        { label: "Talleres y Cursos",        href: "#workshop" },
+        { label: "Comentarios de alumnos",   href: "#rocommendations" },
+        { label: "Pinturas de alumnos",      href: "#gallery" },
       ],
     },
     {
       title: "Acerca",
       links: [
-        { label: "Mis obras", href: "#" },
-        { label: "Galería de alumnos", href: "#" },
-        { label: "Sobre mí", href: "#" },
-        { label: "Nuestra sede", href: "#" },
-        { label: "Contáctame", href: "#" },
+        { label: "Sobre mí",       href: "nav:fiestas" },
+        { label: "Nuestra sede",    href: "nav:sedes" },
+        
       ],
     },
   ],
   legal: [
     { label: "Política de privacidad", href: "#" },
     { label: "Términos y condiciones", href: "#" },
-    { label: "Preguntas frecuentes", href: "#" },
+    { label: "Preguntas frecuentes",   href: "#" },
   ],
   copyright: "© 2026 Adriana Chacón · Taller de Arte · Todos los derechos reservados",
 };
+
