@@ -22,6 +22,7 @@ import { MegaCafes } from "./submenu/First_link";
 import { MegaFiestas } from "./submenu/Second_link";
 import { MegaSedes } from "./submenu/Four_link";
 import { MegaMembresias } from "./submenu/Thirth_link";
+import Image from "next/image";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -144,12 +145,15 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
                 .querySelector("main")
                 ?.scrollTo({ top: 0, behavior: "smooth" })
             }
-            className="-translate-x-1 lg:-translate-x-4 flex-shrink-0 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] lg:w-[88px] lg:h-[88px] bg-[#F5E642] rounded-2xl flex flex-col items-center justify-center cursor-pointer shadow-[3px_3px_0_rgba(0,0,0,0.25)] transform -rotate-12 hover:-rotate-16"
-            style={{ fontFamily: "'Lilita One', cursive" }}
+            className="-translate-x-1 lg:-translate-x-4 flex-shrink-0 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] lg:w-[88px] lg:h-[88px] rounded-2xl overflow-hidden cursor-pointer  transform -rotate-12 hover:-rotate-36 transition-transform duration-300 relative"
           >
-            <span className="text-xl sm:text-2xl lg:text-3xl text-black leading-none tracking-tighter">
-              Logo
-            </span>
+            <Image
+              src="/logo/logo.webp"
+              alt="Academia de Arte Adriana Chacón"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Pills — solo en lg+ */}

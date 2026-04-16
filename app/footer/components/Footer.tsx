@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { Inter_Tight, Barlow_Condensed } from "next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -123,18 +124,21 @@ function LogoBlock({
     <div className="flex flex-col gap-4">
       <div
         onClick={() => document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`${barlow.className} ${logoTextCls} flex items-center justify-center text-black cursor-pointer`}
+        className="cursor-pointer relative overflow-hidden flex-shrink-0 transform -rotate-12 hover:-rotate-26 transition-transform duration-300 "
         style={{
-          background: "#F5E642",
-          borderRadius: logoRadius,
-          transform: "rotate(-10deg)",
-          boxShadow: "3px 3px 0 rgba(255,255,255,0.15)",
           width: logoSize,
           height: logoSize,
-          flexShrink: 0,
+          borderRadius: logoRadius,
+          transform: "rotate(-10deg)",
+         
         }}
       >
-        Logo
+        <Image
+          src="/logo/logo.webp"
+          alt="Academia de Arte Adriana Chacón"
+          fill
+          className="object-cover"
+        />
       </div>
       <p
         className={`${barlow.className} text-white uppercase leading-none`}
