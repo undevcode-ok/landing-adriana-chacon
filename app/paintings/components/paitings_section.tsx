@@ -30,7 +30,7 @@ export function Paintings() {
         <p
           className={`${pacifico.className} text-[#1DAB8E] font-bold tracking-wide text-4xl sm:text-7xl mb-2 italic`}
         >
-          Pinceladas de talento
+          Obras de los Alumnos
         </p>
         
       </div>

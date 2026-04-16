@@ -20,7 +20,7 @@ export type Workshop = {
   price: number;
   currency: string;
   tags: WorkshopTag[];
-  categoryId: string;
+  categoryId: string[];
   soldOut?: boolean;
 };
 

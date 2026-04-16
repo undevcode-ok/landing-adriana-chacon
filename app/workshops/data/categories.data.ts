@@ -1,10 +1,8 @@
 import { Category } from "../types/workshop.types";
 
 export const CATEGORIES: Category[] = [
-  { id: "all",        label: "Todos los cursos" },
-  { id: "decorativa", label: "Pintura Decorativa", color: "coral" },
-  { id: "mixmedia",   label: "Mix Media" },
-  { id: "acuarela",   label: "Cursos de Acuarela",           color: "mint" },
-  { id: "retrato",    label: "Retratos" },
-  { id: "paisajismo", label: "Paisajismo" },
+  { id: "all",       label: "Todos los cursos" },
+  { id: "presencial", label: "Presenciales",   color: "coral" },
+  { id: "virtual",   label: "Virtuales",       color: "mint"  },
+  { id: "tec",       label: "Tecnicaturas",    color: "lilac" },
 ];

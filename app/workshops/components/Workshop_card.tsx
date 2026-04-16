@@ -33,7 +33,7 @@ export function WorkshopCard({ workshop }: Props) {
           src={workshop.imageUrl}
           alt={workshop.imageAlt}
           fill
-          className="object-cover transition-transform duration-500 hover:scale-105"
+          className="object-cover object-top transition-transform duration-500 hover:scale-105 "
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />
 
