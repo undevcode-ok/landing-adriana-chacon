@@ -24,7 +24,7 @@ export const WORKSHOPS: Workshop[] = [
     id: "w-002",
     title: "Pintura Decorativa",
     subtitle: "Taller presencial guiado",
-    imageUrl: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=600&q=80",
+    imageUrl: "/cursos/pintura_decorativa.webp",
     imageAlt: "Retrato pintado al óleo",
     date: "13:00",
     time: "14:00",

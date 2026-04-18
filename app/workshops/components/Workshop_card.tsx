@@ -37,7 +37,7 @@ export function WorkshopCard({ workshop }: Props) {
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />
 
-        <div className="
+        {/*<div className="
           absolute top-3 left-3
           bg-white rounded-[10px] shadow-sm
           px-[10px] py-[6px] text-center
@@ -46,7 +46,7 @@ export function WorkshopCard({ workshop }: Props) {
           {workshop.date}
           <br />
           {workshop.time}
-        </div>
+        </div>*/}
 
         <div className="absolute bottom-3 left-3 flex gap-[5px]  flex-wrap">
           {workshop.tags.map((tag) => (

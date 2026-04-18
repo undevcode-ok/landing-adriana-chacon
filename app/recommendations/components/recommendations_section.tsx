@@ -267,7 +267,7 @@ export function Recommendations() {
             lg:gap-8 lg:mt-8
             xl:gap-10 xl:mt-10"
         >
-          <ArrowButton direction="left" onClick={prev} />
+          {/*<ArrowButton direction="left" onClick={prev} />*/}
 
           <div
             key={rec.id}
@@ -275,13 +275,31 @@ export function Recommendations() {
             style={{ animation: "recFadeIn 0.35s ease both" }}
           >
             <p
-              className={`${dancing.className} text-2xl leading-snug text-black`}
-            >
-              «{rec.quote}»
-            </p>
+  className={`${dancing.className} text-4xl text-center`}
+  style={{
+    fontWeight: 400,             // peso real de Dancing Script
+    lineHeight: 1.15,            // ligeramente más ajustado
+    textShadow: "0 0 1.2px #000", // da sensación de grosor
+    transform: "scaleY(1.1)",     // efecto vertical para más presencia
+    margin: "0 auto",
+  }}
+>
+  «{rec.quote}»
+</p><p
+  className={`${dancing.className} text-4xl text-center`}
+  style={{
+    fontWeight: 400,             // peso real de Dancing Script
+    lineHeight: 1.15,            // ligeramente más ajustado
+    textShadow: "0 0 1.2px #000", // da sensación de grosor
+    transform: "scaleY(1.1)",     // efecto vertical para más presencia
+    margin: "0 auto",
+  }}
+>
+  «{rec.quote}»
+</p>
           </div>
 
-          <ArrowButton direction="right" onClick={next} />
+          {/*<ArrowButton direction="right" onClick={next} />*/}
         </div>
 
         {/* ── Autor ── */}
