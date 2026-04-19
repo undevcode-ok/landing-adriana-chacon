@@ -39,33 +39,33 @@ export function CarouselNav({
       {/* Arrows */}
       <div className="flex gap-2">
         <button
-          onClick={onPrev}
-          disabled={currentPage === 0}
-          aria-label="Anterior"
-          className="
-            w-9 h-9 rounded-full  bg-[#2B1F1A]
-            text-white font-bold text-sm flex items-center justify-center
-            transition-all duration-200
-            hover:bg-[#5a5c1e] hover:text-white 
-            disabled:opacity-30 disabled:cursor-not-allowed
-          "
-        >
-           <FontAwesomeIcon icon={faChevronLeft} className="w-3! h-3!" />
-        </button>
-        <button
-          onClick={onNext}
-          disabled={currentPage === totalPages - 1}
-          aria-label="Siguiente"
-          className="
-            w-9 h-9 rounded-full  bg-[#2B1F1A]
-            text-white font-bold text-sm flex items-center justify-center
-            transition-all duration-200
-            hover:bg-[#5a5c1e] hover:text-white
-            disabled:opacity-30 disabled:cursor-not-allowed
-          "
-        >
-           <FontAwesomeIcon icon={faChevronRight} className="w-3! h-3!" />
-        </button>
+  onClick={onPrev}
+  disabled={currentPage === 0}
+  aria-label="Anterior"
+  className="
+    w-9 h-9 rounded-full bg-[#1DAB8E]
+    text-white font-bold text-sm flex items-center justify-center
+    transition-all duration-200
+    hover:bg-[#178f75]
+    disabled:opacity-30 disabled:cursor-not-allowed
+  "
+>
+  <FontAwesomeIcon icon={faChevronLeft} className="w-3! h-3!" />
+</button>
+<button
+  onClick={onNext}
+  disabled={currentPage === totalPages - 1}
+  aria-label="Siguiente"
+  className="
+    w-9 h-9 rounded-full bg-[#1DAB8E]
+    text-white font-bold text-sm flex items-center justify-center
+    transition-all duration-200
+    hover:bg-[#178f75]
+    disabled:opacity-30 disabled:cursor-not-allowed
+  "
+>
+  <FontAwesomeIcon icon={faChevronRight} className="w-3! h-3!" />
+</button>
       </div>
     </div>
   );
