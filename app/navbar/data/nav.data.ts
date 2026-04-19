@@ -187,3 +187,5 @@ export const STUDENTS_PAINTS = [
   "/students_paints/Fabiana.webp",
   "/students_paints/Cecilia_K.webp",
 ];
+
+export const WHATSAPP_NAVBAR_MESSAGE = "Hola Adriana, quiero comunicarme con vos...";

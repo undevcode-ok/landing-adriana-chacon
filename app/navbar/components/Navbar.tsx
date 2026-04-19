@@ -11,10 +11,9 @@ import {
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
 import {
-  faCalendar,
-  faCircleQuestion,
-  faImage,
-} from "@fortawesome/free-regular-svg-icons";
+  faWhatsapp, // ← nuevo
+} from "@fortawesome/free-brands-svg-icons";
+import { faCircleQuestion, faImage } from "@fortawesome/free-regular-svg-icons";
 import { NavItemId } from "../types/nav.types";
 import { NAV_ITEMS } from "../data/nav.data";
 import { TalleresMenu } from "./submenu/Talleres_menu";
@@ -23,6 +22,8 @@ import { MegaFiestas } from "./submenu/Second_link";
 import { MegaSedes } from "./submenu/Four_link";
 import { MegaMembresias } from "./submenu/Thirth_link";
 import Image from "next/image";
+import { WHATSAPP_CONFIG } from "@/common/config/whatsapp.config";
+import { WHATSAPP_NAVBAR_MESSAGE } from "../data/nav.data";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -194,19 +195,20 @@ export function Navbar({ openMenu, toggleMenu, closeMenu }: NavbarProps) {
           <div className="flex items-center gap-2 text-black">
             {/* Calendario y FAQ — siempre visibles */}
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => handleAction("calendar")}
-                className={`group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm overflow-hidden
-                  ${activeAction === "calendar" ? "bg-orange-100 hover:bg-orange-100" : "bg-white hover:bg-gray-100"}`}
+              <a
+                href={`https://wa.me/${WHATSAPP_CONFIG.whatsapp}?text=${encodeURIComponent(WHATSAPP_NAVBAR_MESSAGE)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-full flex items-center gap-0 px-3 py-2.5 border-none cursor-pointer transition-all duration-200 shadow-sm bg-white hover:bg-[#25D366] hover:text-white overflow-hidden text-black"
               >
                 <FontAwesomeIcon
-                  icon={faCalendar}
+                  icon={faWhatsapp}
                   className="flex-shrink-0 w-6! h-6!"
                 />
                 <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-200 text-sm font-semibold whitespace-nowrap">
-                  Calendario
+                  Contacto
                 </span>
-              </button>
+              </a>
             </div>
 
             {/* Botón Menú con animación hamburger → X */}
