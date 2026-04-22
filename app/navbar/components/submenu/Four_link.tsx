@@ -125,7 +125,7 @@ const SEDES = [
   {
     name: "El Taller\nEn Quilmes",
     address: "Vicente Lopez 1279, Quilmes, Provincia de Buenos Aires",
-    bgImage: "/locations/taller_quilmes.webp",
+    bgImage: "/locations/taller_quilmes_2.webp",
     blobColors: ["#B5EAD7", "#FFDAC1", "#FFB3C1", "#A8D8EA"],
     mapsUrl: "https://maps.app.goo.gl/rLRGe25RfKguRatr6",
   },
