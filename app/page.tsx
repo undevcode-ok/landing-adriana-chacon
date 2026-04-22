@@ -40,12 +40,9 @@ export default function Home() {
           <WorkshopSection />
         </section>
 
-        <section
-          id="rocommendations"
-          className="lg:h-screen lg:overflow-hidden lg:snap-start"
-        >
-          <Recommendations />
-        </section>
+        <section id="rocommendations" className="min-h-screen lg:snap-start">
+  <Recommendations />
+</section>
 
         <section
           id="gallery"
