@@ -118,16 +118,16 @@ const SEDES = [
   {
     name: "El Taller\nEn Banfield",
     address: "San Patricio 50, Temperley, Provincia de Buenos Aires",
-    bgImage: "/locations/taller.webp",
+    bgImage: "/locations/taller_banfield.webp",
     blobColors: ["#FFB3C1", "#A8D8EA", "#B5EAD7", "#FFDAC1"],
     mapsUrl: "https://www.google.com/maps/place/El+Taller+De+Adriana+Chac%C3%B3n/@-34.7520172,-58.3696269,17z/data=!3m1!4b1!4m6!3m5!1s0x95a32d4a0dea6a71:0x60416eaccfa73378!8m2!3d-34.7520216!4d-58.367052!16s%2Fg%2F1tpbd4sb?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D",
   },
   {
     name: "El Taller\nEn Quilmes",
     address: "Vicente Lopez 1279, Quilmes, Provincia de Buenos Aires",
-    bgImage: "/locations/taller.webp",
+    bgImage: "/locations/taller_quilmes.webp",
     blobColors: ["#B5EAD7", "#FFDAC1", "#FFB3C1", "#A8D8EA"],
-    mapsUrl: "https://www.google.com/maps/place/El+Taller+De+Adriana+Chac%C3%B3n/@-34.7520172,-58.3696269,17z/data=!3m1!4b1!4m6!3m5!1s0x95a32d4a0dea6a71:0x60416eaccfa73378!8m2!3d-34.7520216!4d-58.367052!16s%2Fg%2F1tpbd4sb?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D",
+    mapsUrl: "https://maps.app.goo.gl/rLRGe25RfKguRatr6",
   },
 ];
 
@@ -158,7 +158,7 @@ export function MegaSedes({ onClose }: { onClose?: () => void }) {
         ))}
       </div>
 
-      <BottomLinks links={SEDES_BOTTOM_LINKS} onClose={onClose} />
+      {/*<BottomLinks links={SEDES_BOTTOM_LINKS} onClose={onClose} />*/}
     </div>
   );
 }

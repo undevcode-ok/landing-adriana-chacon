@@ -153,7 +153,7 @@ export function MegaCafes({ onClose }: { onClose?: () => void }) {
         <PaintCard src={img2} blobColors={BLOB_COLORS_2} />
       </div>
 
-      <BottomLinks links={CAFES_BOTTOM_LINKS} onClose={onClose} />
+      {/*<BottomLinks links={CAFES_BOTTOM_LINKS} onClose={onClose} />*/}
     </div>
   );
 }

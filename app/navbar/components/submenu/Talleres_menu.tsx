@@ -68,7 +68,7 @@ function BlobBorder({ colors }: { colors: string[] }) {
 }
 
 /* ── Card 1: Hero ── */
-function HeroCard() {
+function HeroCard({ onClose }: { onClose?: () => void }) {
   return (
     <div
       className="rounded-[20px] overflow-hidden relative flex flex-col justify-center p-5 group
@@ -112,13 +112,19 @@ function HeroCard() {
             </span>
           ))}
         </div>
-        <button
+       <button
+            onClick={() => {
+              onClose?.();
+              document
+                .getElementById("workshop")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
           className={`${interTight.className} self-center bg-yellow-300 text-black font-extrabold rounded-full
             px-4 py-2 lg:px-5 lg:py-2.5 mt-1 lg:mt-2 text-xs lg:text-sm
             border-2 border-yellow-300 hover:bg-amber-400 hover:border-amber-400 hover:text-black
             transition-all duration-200 cursor-pointer`}
         >
-          Ver el calendario
+          Ver cursos
         </button>
       </div>
     </div>
@@ -283,7 +289,7 @@ export function TalleresMenu({ onClose }: { onClose?: () => void }) {
     <div className="relative">
       {/* ── MOBILE (< 768px): 1 columna ── */}
       <div className="flex flex-col gap-4 py-4 px-4 md:hidden">
-        <HeroCard />
+        <HeroCard onClose={onClose} />
         <PinturaCard onClose={onClose} />
         <CeramicaCard onClose={onClose}/>
         <SmallCard
@@ -306,7 +312,7 @@ export function TalleresMenu({ onClose }: { onClose?: () => void }) {
           tagHoverBg="#c0507a"
           blobColors={["#FFDAC1", "#FFB3C1", "#A8D8EA", "#B5EAD7"]}
         />
-        <BottomLinks links={TALLERES_BOTTOM_LINKS} onClose={onClose} />
+        {/*<BottomLinks links={TALLERES_BOTTOM_LINKS} onClose={onClose} />*/}
       </div>
 
       {/* ── TABLET (768px - 1024px): 2 columnas ── */}
@@ -314,7 +320,7 @@ export function TalleresMenu({ onClose }: { onClose?: () => void }) {
         className="hidden md:grid lg:hidden gap-4 py-4 px-6"
         style={{ gridTemplateColumns: "1fr 1fr" }}
       >
-        <HeroCard />
+       <HeroCard onClose={onClose} />
         <PinturaCard onClose={onClose} />
         <CeramicaCard onClose={onClose}/>
         <div className="flex flex-col gap-4">
@@ -340,7 +346,7 @@ export function TalleresMenu({ onClose }: { onClose?: () => void }) {
           />
         </div>
         <div className="col-span-2">
-          <BottomLinks links={TALLERES_BOTTOM_LINKS} onClose={onClose} />
+          {/*<BottomLinks links={TALLERES_BOTTOM_LINKS} onClose={onClose} />*/}
         </div>
       </div>
 
@@ -349,7 +355,7 @@ export function TalleresMenu({ onClose }: { onClose?: () => void }) {
         className="hidden lg:grid gap-5 py-[18px] w-full"
         style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr" }}
       >
-        <HeroCard />
+        <HeroCard onClose={onClose} />
         <PinturaCard onClose={onClose} />
         <CeramicaCard onClose={onClose}/>
         <div className="flex flex-col gap-3">
@@ -375,9 +381,10 @@ export function TalleresMenu({ onClose }: { onClose?: () => void }) {
           />
         </div>
       </div>
-      <div className="hidden lg:block">
+      
+      {/*<div className="hidden lg:block">
         <BottomLinks links={TALLERES_BOTTOM_LINKS} onClose={onClose} />
-      </div>
+      </div>*/}
     </div>
   );
 }
