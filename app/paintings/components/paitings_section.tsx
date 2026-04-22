@@ -20,7 +20,7 @@ export function Paintings() {
 
   return (
     <section
-      className="relative w-full h-full d-flex items-center overflow-hidden py-16 lg:py-20"
+      className="relative w-full h-full d-flex items-center overflow-hidden py-16 lg:py-20 xl:mt-30"
       style={{ background: "#e8f5ee" }}
     >
       <OrganicBg />
