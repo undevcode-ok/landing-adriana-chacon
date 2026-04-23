@@ -7,6 +7,11 @@ export const PAINTINGS: Painting[] = [
     course: "Pintura Decorativa",
   },
   {
+    src: "/students_paints/Martinez_deco.webp",
+    author: "Martinez",
+    course: "Pintura Decorativa",
+  },
+  {
     src: "/students_paints/German_dibujo.webp",
     author: "German",
     course: "Dibujo y Pintura",

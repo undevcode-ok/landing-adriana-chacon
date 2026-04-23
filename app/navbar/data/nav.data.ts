@@ -178,14 +178,21 @@ export const MEMBRESIAS_BOTTOM_LINKS: BottomLink[] = [
 ];
 
 export const STUDENTS_PAINTS = [
-  "/students_paints/María_Del_Rosario.webp",
-  "/students_paints/Ayeza.webp",
-  "/students_paints/Agostina.webp",
-  "/students_paints/Carmen.webp",
-  "/students_paints/Edith.webp",
-  "/students_paints/Celeste.webp",
-  "/students_paints/Fabiana.webp",
-  "/students_paints/Cecilia_K.webp",
+  "/cursos/pintura_decorativa.webp",
+  "/students_paints/Cristina_deco.webp",
+  "/students_paints/Martinez_deco.webp",
+  "/students_paints/Dorita_mix.webp",
+  "/students_paints/German_dibujo.webp",
+  "/cursos/mix_media.webp",
+  "/students_paints/Lia_mix.webp",
+  "/cursos/paisajismo.webp",
+  "/students_paints/Marisa_paisajismo.webp",
+  "/students_paints/Osky_paisajismo.webp",
+  "/students_paints/Paula_mix.webp",
+  "/cursos/dibujo_pinturaa.webp",
+  "/students_paints/Rosario_dibujo.webp",
+  "/students_paints/Roxana_dibujo.webp",
+  "/students_paints/Vanesa_deco.webp",
 ];
 
 export const WHATSAPP_NAVBAR_MESSAGE = "Hola Adriana, quiero comunicarme con vos...";
