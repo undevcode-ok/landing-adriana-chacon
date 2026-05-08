@@ -26,7 +26,7 @@ export function WorkshopCarousel({ activeCategory, setActiveCategoryById }: Prop
   const filtered =
     activeCategory.id === "all"
       ? WORKSHOPS
-      : WORKSHOPS.filter((w) => w.categoryId === activeCategory.id);
+      : WORKSHOPS.filter((w) => w.categoryId.includes(activeCategory.id));
 
   const { currentPage, totalPages, goToPage, goNext, goPrev, pauseAuto, resumeAuto } =
     useWorkshopCarousel(filtered, cardsPerPage);

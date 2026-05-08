@@ -2,7 +2,7 @@ import { SocialData } from "../types/social.types";
 
 export const SOCIAL_DATA: SocialData = {
   tagline: "Seguime en mis redes",
-  youtubeVideoId: "mLw2a-FgYvM", // reemplazá con tu video ID real
+  youtubeVideoId: "JpoFjlEjZhM", // reemplazá con tu video ID real
   cards: [
     {
       id: "youtube",

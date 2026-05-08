@@ -1,7 +1,7 @@
 "use client";
 
 import { Navbar } from "@/app/navbar/components/Navbar";
-import { Hero }   from "@/app/hero/components/Hero";
+import { Hero } from "@/app/hero/components/Hero";
 import { useNavbar } from "./navbar/hooks/use_nav";
 import { Social } from "@/app/social/components/social_section";
 import { Recommendations } from "@/app/recommendations/components/recommendations_section";
@@ -14,34 +14,46 @@ export default function Home() {
 
   return (
     <>
-      <Navbar openMenu={openMenu} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+      <Navbar
+        openMenu={openMenu}
+        toggleMenu={toggleMenu}
+        closeMenu={closeMenu}
+      />
 
       <main className="lg:h-screen lg:overflow-y-scroll  lg:snap-mandatory">
-
         <section className="lg:h-screen lg:overflow-hidden lg:snap-start">
           <Hero onOpenMenu={toggleMenu} />
         </section>
 
-        <section id="social" className="lg:h-screen lg:overflow-hidden lg:snap-start flex flex-col">
+        <section
+          id="social"
+          className="lg:h-screen lg:overflow-hidden lg:snap-start flex flex-col"
+        >
           <Social />
         </section>
 
-        <section id="workshop" className="lg:h-screen lg:overflow-hidden lg:snap-start" style={{ scrollMarginTop: "140px" }}>
+        <section
+          id="workshop"
+          className="lg:snap-start"
+          style={{ scrollMarginTop: "140px" }}
+        >
           <WorkshopSection />
         </section>
 
-        <section id="rocommendations" className="lg:h-screen lg:overflow-hidden lg:snap-start">
-          <Recommendations />
-        </section>
+        <section id="rocommendations" className="min-h-screen lg:snap-start">
+  <Recommendations />
+</section>
 
-        <section id="gallery" className="lg:h-screen lg:overflow-hidden lg:snap-start">
+        <section
+          id="gallery"
+          className="lg:h-screen lg:overflow-hidden lg:snap-start"
+        >
           <Paintings />
         </section>
 
         <section id="contact">
           <Footer onOpenMenu={toggleMenu} />
         </section>
-
       </main>
     </>
   );

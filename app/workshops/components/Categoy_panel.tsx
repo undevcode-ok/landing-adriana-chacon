@@ -18,7 +18,7 @@ export function CategoryPanel({ activeCategory, onSelectAll }: Props) {
       h-[180px] sm:h-[240px] lg:h-auto lg:self-stretch">
 
       <Image
-        src="/fade/artist2.png"
+        src="/fade/artist.webp"
         alt="Persona pintando en el taller"
         fill
         className="object-cover object-top lg:object-center"

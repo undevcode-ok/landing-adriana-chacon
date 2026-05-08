@@ -9,8 +9,8 @@ export function WorkshopSection() {
 
   return (
     <section className="w-full bg-[#FAF6EC] py-8 px-4 sm:py-10 sm:px-6">
-      <div className="max-w-[1440px] mx-auto">
-        <div className="rounded-[28px] bg-[#fdcdc5] p-3 sm:p-4 shadow-sm flex flex-col lg:h-[680px]">
+      <div className="max-w-[1400px] mx-auto lg:px-14">
+        <div className="rounded-[28px] bg-[#fdcdc5] p-3 sm:p-4 shadow-sm flex flex-col">
 
           {/* Mobile / tablet: apilado vertical */}
           <div className="flex flex-col gap-3 sm:gap-4 lg:hidden">

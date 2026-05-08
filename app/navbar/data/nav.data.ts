@@ -21,7 +21,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     id: "sedes",
-    lines: ["Nuestra", "sede"],
+    lines: ["Nuestras", "sedes"],
     iconName: "MapPin",
     iconColor: "#1DAB8E",
   },
@@ -151,8 +151,8 @@ export const SEDES_LOCATIONS = [
 ];
 
 export const SEDES_BOTTOM_LINKS: BottomLink[] = [
-  { label: "Nuestra sede", sub: "Visitanos en San Patricio, Temperley", href: "https://www.google.com/maps/place/El+Taller+De+Adriana+Chac%C3%B3n/@-34.7520172,-58.3696269,17z/data=!3m1!4b1!4m6!3m5!1s0x95a32d4a0dea6a71:0x60416eaccfa73378!8m2!3d-34.7520216!4d-58.367052!16s%2Fg%2F1tpbd4sb?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D" },
-  { label: "Horarios y visitas", sub: "Conocé los días y horarios de los talleres", href: "#workshop" },
+  { label: "Nuestras sedes", sub: "Visitanos en San Patricio, Temperley", href: "https://www.google.com/maps/place/El+Taller+De+Adriana+Chac%C3%B3n/@-34.7520172,-58.3696269,17z/data=!3m1!4b1!4m6!3m5!1s0x95a32d4a0dea6a71:0x60416eaccfa73378!8m2!3d-34.7520216!4d-58.367052!16s%2Fg%2F1tpbd4sb?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D" },
+  { label: "Nuestras sedes", sub: "Conocé los días y horarios de los talleres", href: "#workshop" },
 ];
 
 /* ── MEMBRESÍAS ── */
@@ -178,12 +178,21 @@ export const MEMBRESIAS_BOTTOM_LINKS: BottomLink[] = [
 ];
 
 export const STUDENTS_PAINTS = [
-  "/students_paints/María_Del_Rosario.webp",
-  "/students_paints/Ayeza.webp",
-  "/students_paints/Agostina.webp",
-  "/students_paints/Carmen.webp",
-  "/students_paints/Edith.webp",
-  "/students_paints/Celeste.webp",
-  "/students_paints/Fabiana.webp",
-  "/students_paints/Cecilia_K.webp",
+  "/cursos/pintura_decorativa.webp",
+  "/students_paints/Cristina_deco.webp",
+  "/students_paints/Martinez_deco.webp",
+  "/students_paints/Dorita_mix.webp",
+  "/students_paints/German_dibujo.webp",
+  "/cursos/mix_media.webp",
+  "/students_paints/Lia_mix.webp",
+  "/cursos/paisajismo.webp",
+  "/students_paints/Marisa_paisajismo.webp",
+  "/students_paints/Osky_paisajismo.webp",
+  "/students_paints/Paula_mix.webp",
+  "/cursos/dibujo_pinturaa.webp",
+  "/students_paints/Rosario_dibujo.webp",
+  "/students_paints/Roxana_dibujo.webp",
+  "/students_paints/Vanesa_deco.webp",
 ];
+
+export const WHATSAPP_NAVBAR_MESSAGE = "Hola Adriana, quiero comunicarme con vos...";

@@ -20,7 +20,7 @@ export function Paintings() {
 
   return (
     <section
-      className="relative w-full h-full d-flex items-center overflow-hidden py-16 lg:py-20"
+      className="relative w-full h-full d-flex items-center overflow-hidden py-16 lg:py-20 xl:mt-30"
       style={{ background: "#e8f5ee" }}
     >
       <OrganicBg />
@@ -30,7 +30,7 @@ export function Paintings() {
         <p
           className={`${pacifico.className} text-[#1DAB8E] font-bold tracking-wide text-4xl sm:text-7xl mb-2 italic`}
         >
-          Pinceladas de talento
+          Obras de los Alumnos
         </p>
         
       </div>
