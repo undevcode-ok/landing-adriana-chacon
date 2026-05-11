@@ -8,7 +8,7 @@ export function WorkshopSection() {
   const { activeCategory, setActiveCategoryById } = useActiveCategory();
 
   return (
-    <section className="w-full bg-[#FAF6EC] py-8 px-4 sm:py-10 sm:px-6">
+    <section className="w-full bg-[#FAF6EC] py-8 px-4 sm:py-10 sm:px-6 xl:mt-20">
       <div className="max-w-[1400px] mx-auto lg:px-14">
         <div className="rounded-[28px] bg-[#fdcdc5] p-3 sm:p-4 shadow-sm flex flex-col">
 

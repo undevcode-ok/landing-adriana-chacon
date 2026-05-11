@@ -25,7 +25,7 @@ export function Social() {
   const { youtubeVideoId, cards } = SOCIAL_DATA;
 
   return (
-    <section className="w-full bg-[#FDF8ED] py-8 sm:py-10 lg:py-14 xl:py-20">
+    <section className="w-full bg-[#FDF8ED] py-8 sm:py-10 lg:py-14 xl:py-20 xl:mt-17.5">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-14 xl:px-14">
 
         {/* ── Header ── */}

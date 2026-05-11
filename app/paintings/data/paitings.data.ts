@@ -26,7 +26,7 @@ export const PAINTINGS: Painting[] = [
     author: "Dorita",
     course: "Mix Media",
   },
-  { src: "/students_paints/lia_mix.webp", author: "Lia", course: "Mix Media" },
+  { src: "/students_paints/Lia_mix.webp", author: "Lia", course: "Mix Media" },
   {
     src: "/students_paints/Osky_paisajismo.webp",
     author: "Oscar",
@@ -48,7 +48,7 @@ export const PAINTINGS: Painting[] = [
     course: "Mix Media",
   },
   {
-    src: "/students_paints/Marisa_paisajismo.webp",
+    src: "/students_paints/Marisa_Paisajismo.webp",
     author: "Marisa",
     course: "Paisajismo",
   }
